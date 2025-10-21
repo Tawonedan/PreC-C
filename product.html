@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireless Headphones - PreC-C</title>
+    <meta name="description" content="Temukan produk kebutuhan kantor dan kreatifmu di PreC-C">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="smile-plus" class="w-8 h-8 text-black-600"></i>
+                    <span class="text-2xl font-bold text-gray-800">PreC-C</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Beranda</a>
+                    <a href="products.html" class="text-blue-600 font-medium">Produk</a>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Tentang</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="search-toggle" class="p-2 text-gray-700 hover:text-blue-600 transition-colors">
+                        <i data-lucide="search" class="w-6 h-6"></i>
+                    </button>
+                    
+                    <div id="search-container" class="hidden absolute top-full right-4 mt-2 z-50">
+                        <input type="text" id="search-input" placeholder="Cari produk..." class="w-64 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white shadow-lg">
+                    </div>
+                    
+                    <button id="cart-toggle" class="relative p-2 text-gray-700 hover:text-blue-600 transition-colors">
+                        <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </button>
+                    
+                    <a href="profile.html" class="p-2 text-gray-700 hover:text-blue-600 transition-colors">
+                        <i data-lucide="user" class="w-6 h-6"></i>
+                    </a>
+                    
+                    <button id="mobile-menu-toggle" class="md:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="mobile-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
+            
+            <div id="mobile-menu" class="fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-8">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="shopping-bag" class="w-8 h-8 text-blue-600"></i>
+                            <span class="text-2xl font-bold text-gray-800">PreC-C</span>
+                        </div>
+                    </div>
+                    
+                    <nav class="space-y-4">
+                        <a href="index.html" class="flex items-center space-x-3 text-gray-700 hover:text-blue-600 transition-colors font-medium py-3">
+                            <i data-lucide="home" class="w-5 h-5"></i>
+                            <span>Beranda</span>
+                        </a>
+                        <a href="products.html" class="flex items-center space-x-3 text-blue-600 font-medium py-3">
+                            <i data-lucide="package" class="w-5 h-5"></i>
+                            <span>Produk</span>
+                        </a>
+                        <a href="about.html" class="flex items-center space-x-3 text-gray-700 hover:text-blue-600 transition-colors font-medium py-3">
+                            <i data-lucide="info" class="w-5 h-5"></i>
+                            <span>Tentang</span>
+                        </a>
+                          <a href="cart.html" class="flex items-center space-x-3 text-gray-700 hover:text-blue-600 transition-colors font-medium py-3">
+                              <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                              <span>Keranjang</span>
+                          </a>
+                          <a href="profile.html" class="flex items-center space-x-3 text-gray-700 hover:text-blue-600 transition-colors font-medium py-3">
+                              <i data-lucide="user" class="w-5 h-5"></i>
+                              <span>Profil</span>
+                          </a>
+                      </nav>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="bg-gray-100 py-4">
+        <div class="container mx-auto px-4">
+            <nav class="flex items-center space-x-2 text-sm">
+                <a href="index.html" class="text-gray-600 hover:text-blue-600">Beranda</a>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-gray-400"></i>
+                <span class="text-gray-800">Produk</span>
+            </nav>
+        </div>
+    </div>
+
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-4">
+                    <div class="aspect-square bg-white rounded-lg shadow-md overflow-hidden relative group">
+                        <img id="main-image" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=600&fit=crop" alt="Wireless Headphones" class="w-full h-full object-cover">
+                        
+                        <button id="image-prev" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                        </button>
+                        <button id="image-next" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-4 gap-4">
+                        <button class="thumbnail-btn aspect-square bg-white rounded-lg shadow-sm overflow-hidden border-2 border-blue-600" data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=600&fit=crop">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=150&h=150&fit=crop" alt="Wireless Headphones" class="w-full h-full object-cover">
+                        </button>
+                        <button class="thumbnail-btn aspect-square bg-white rounded-lg shadow-sm overflow-hidden border-2 border-transparent hover:border-gray-300" data-image="https://images.unsplash.com/photo-1484704849700-f032a568e944?w=600&h=600&fit=crop">
+                            <img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?w=150&h=150&fit=crop" alt="Wireless Headphones Side View" class="w-full h-full object-cover">
+                        </button>
+                        <button class="thumbnail-btn aspect-square bg-white rounded-lg shadow-sm overflow-hidden border-2 border-transparent hover:border-gray-300" data-image="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&h=600&fit=crop">
+                            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=150&h=150&fit=crop" alt="Wireless Headphones Detail" class="w-full h-full object-cover">
+                        </button>
+                        <button class="thumbnail-btn aspect-square bg-white rounded-lg shadow-sm overflow-hidden border-2 border-transparent hover:border-gray-300" data-image="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&h=600&fit=crop">
+                            <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=150&h=150&fit=crop" alt="Wireless Headphones Box" class="w-full h-full object-cover">
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-800 mb-2">Wireless Headphones</h1>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="flex items-center">
+                                <div class="flex text-yellow-400">
+                                    <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                    <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                    <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                    <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                    <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                </div>
+                                <span class="ml-2 text-gray-600">(4.8) 124 ulasan</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4">
+                        <span class="text-4xl font-bold text-blue-600">Rp 99.000</span>
+                        <span class="text-2xl text-gray-500 line-through">Rp 129.000</span>
+                        <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-semibold">DISKON 23%</span>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold text-gray-800">Deskripsi</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Nikmati kualitas suara premium dengan headphone ini. Fitur penghilang noise aktif, 
+                            masa pakai baterai 30 jam, dan desain yang nyaman. Cocok untuk penggemar musik, gamers, dan profesional 
+                            yang membutuhkan pengalaman audio terbaik.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold text-gray-800">Fitur Utama</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center">
+                                <i data-lucide="check" class="w-5 h-5 text-green-500 mr-2"></i>
+                                Penghilang Noise Aktif
+                            </li>
+                            <li class="flex items-center">
+                                <i data-lucide="check" class="w-5 h-5 text-green-500 mr-2"></i>
+                                Masa Pakai Baterai 30 Jam
+                            </li>
+                            <li class="flex items-center">
+                                <i data-lucide="check" class="w-5 h-5 text-green-500 mr-2"></i>
+                                Wireless Bluetooth 5.0
+                            </li>
+                            <li class="flex items-center">
+                                <i data-lucide="check" class="w-5 h-5 text-green-500 mr-2"></i>
+                                Pengisian Cepat (5 menit = 3 jam)
+                            </li>
+                            <li class="flex items-center">
+                                <i data-lucide="check" class="w-5 h-5 text-green-500 mr-2"></i>
+                                Desain Over-Ear Nyaman 
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold text-gray-800">Jumlah</h3>
+                        <div class="flex items-center space-x-4">
+                            <button id="decrease-qty" class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100">
+                                <i data-lucide="minus" class="w-4 h-4"></i>
+                            </button>
+                            <span id="quantity" class="text-xl font-semibold w-12 text-center">1</span>
+                            <button id="increase-qty" class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100">
+                                <i data-lucide="plus" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <button id="add-to-cart-detail" class="flex-1 bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"data-product-id="99" data-product-name="Wireless Headphones" data-product-price="99" data-product-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop">
+                            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                            <span>Tambahkan ke Keranjang</span>
+                        </button>
+                        <button class="bg-gray-200 text-gray-800 px-6 py-4 rounded-lg font-semibold hover:bg-gray-300 transition-colors">
+                            <i data-lucide="heart" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="pt-4 border-t border-gray-200">
+                        <div class="flex items-center space-x-6 text-sm text-gray-600">
+                            <div class="flex items-center">
+                                <i data-lucide="truck" class="w-5 h-5 mr-2"></i>
+                                Pengiriman Gratis
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="rotate-ccw" class="w-5 h-5 mr-2"></i>
+                                Pengembalian 30 Hari
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="shield-check" class="w-5 h-5 mr-2"></i>
+                                Garansi 2 Tahun
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Produk Lainnya</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1703953679995-645a375feb8b?w=400&h=300&fit=crop" alt="manuk" class="w-full h-48 object-cover">
+                        <div style="visibility: hidden;" class="absolute top-2 right-2 bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-semibold">${getCategoryName(product.category)}</div>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">CableMate Organizer Box</h3>
+                        <p class="text-gray-600 text-sm mb-3 flex-grow">
+                            Jaga kabel daya dan kabel bengkok tersembunyi di dalam kotak ini. 
+                            Cocok untuk menjaga pengaturan ruang kerja rapi sambil melindungi kabel Anda dari debu dan kerusakan.
+                        </p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-2xl font-bold text-blue-600">Rp. 10.490</span>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button class="product-detail bg-gray-200 text-gray-700 px-3 py-2 rounded-lg hover:bg-gray-300 transition-colors" onclick="window.location.href='product.html'">
+                                    <i data-lucide="search" class="w-4 h-4"></i>
+                                </button>
+                                <button class="add-to-cart bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 transition-colors" 
+                                        data-product-id="7" 
+                                        data-product-name="CableMate Organizer Box" 
+                                        data-product-price="10.49" 
+                                        data-product-image="https://images.unsplash.com/photo-1703953679995-645a375feb8b?w=400&h=300&fit=crop">
+                                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1633520833019-e34afd4b8fad?w=400&h=300&fit=crop" alt="manuk" class="w-full h-48 object-cover">
+                        <div style="visibility: hidden;" class="absolute top-2 right-2 bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-semibold">${getCategoryName(product.category)}</div>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">ClearFile Document Folder Set</h3>
+                        <p class="text-gray-600 text-sm mb-3 flex-grow">
+                            Set folder transparan yang dirancang untuk menjaga dokumen rapi dan mudah diakses. 
+                            Cocok untuk mengatur laporan, sertifikat, dan presentasi di lingkungan sekolah dan kantor.
+                        </p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-2xl font-bold text-blue-600">Rp. 8.990</span>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button class="product-detail bg-gray-200 text-gray-700 px-3 py-2 rounded-lg hover:bg-gray-300 transition-colors" onclick="window.location.href='product.html'">
+                                    <i data-lucide="search" class="w-4 h-4"></i>
+                                </button>
+                                <button class="add-to-cart bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 transition-colors" 
+                                        data-product-id="5" 
+                                        data-product-name="ClearFile Document Folder Set" 
+                                        data-product-price="8.99" 
+                                        data-product-image="https://images.unsplash.com/photo-1633520833019-e34afd4b8fad?w=400&h=300&fit=crop">
+                                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1580493783887-8c874c534e93?w=400&h=300&fit=crop" alt="manuk" class="w-full h-48 object-cover">
+                        <div style="visibility: hidden;" class="absolute top-2 right-2 bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-semibold">${getCategoryName(product.category)}</div>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">ClarityPro USB Microphone</h3>
+                        <p class="text-gray-600 text-sm mb-3 flex-grow">
+                            Mikrofon studio berkualitas tinggi yang ideal untuk podcaster, streamer, dan pembuat konten yang mencari kualitas audio yang tajam dan seimbang. 
+                            Desain plug-and-play memastikan pengaturan tanpa masalah dengan komputer apa pun.
+                        </p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-2xl font-bold text-blue-600">Rp. 79.990</span>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button class="product-detail bg-gray-200 text-gray-700 px-3 py-2 rounded-lg hover:bg-gray-300 transition-colors" onclick="window.location.href='product.html'">
+                                    <i data-lucide="search" class="w-4 h-4"></i>
+                                </button>
+                                <button class="add-to-cart bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 transition-colors" 
+                                        data-product-id="11" 
+                                        data-product-name="ClarityPro USB Microphone" 
+                                        data-product-price="79.99" 
+                                        data-product-image="https://images.unsplash.com/photo-1580493783887-8c874c534e93?w=400&h=300&fit=crop">
+                                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1673196649671-eb09066ad6c1?w=400&h=300&fit=crop" alt="manuk" class="w-full h-48 object-cover">
+                        <div style="visibility: hidden;" class="absolute top-2 right-2 bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-semibold">${getCategoryName(product.category)}</div>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">LumaRing LED Light 12-inch</h3>
+                        <p class="text-gray-600 text-sm mb-3 flex-grow">
+                            Pencahayaan LED ring yang berkilau dan dapat diatur warna untuk pembuat konten. 
+                            Memberikan pencahayaan lembut dan merata untuk sesi video, streaming, atau fotografi dengan berbagai suhu warna.
+                        </p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-2xl font-bold text-blue-600">Rp. 45.990</span>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button class="product-detail bg-gray-200 text-gray-700 px-3 py-2 rounded-lg hover:bg-gray-300 transition-colors" onclick="window.location.href='product.html'">
+                                    <i data-lucide="search" class="w-4 h-4"></i>
+                                </button>
+                                <button class="add-to-cart bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 transition-colors" 
+                                        data-product-id="12" 
+                                        data-product-name="LumaRing LED Light 12-inch" 
+                                        data-product-price="45.99" 
+                                        data-product-image="https://images.unsplash.com/photo-1673196649671-eb09066ad6c1?w=400&h=300&fit=crop">
+                                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i data-lucide="smile-plus" class="w-8 h-8 text-black-600"></i>
+                        <span class="text-2xl font-bold text-white-800">PreC-C</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">PreC-C adalah toko online terpercaya untuk produk berkualitas dengan harga terjangkau.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tautan Cepat</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Beranda</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors">Produk</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">Tentang</a></li>
+                        <li><a href="cart.html" class="text-gray-400 hover:text-white transition-colors">Keranjang</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Customer Service</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Hubungi Kami</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Info Pengiriman</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Pengembalian</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Info Kontak</h3>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i data-lucide="mail" class="w-4 h-4 inline mr-2"></i>info@prec-c.com</p>
+                        <p><i data-lucide="phone" class="w-4 h-4 inline mr-2"></i>+62 812 3456 7890</p>
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2"></i>Jl. Ambarowo No. 67, Surabaya</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 PreC-C. Dilindungi oleh hak cipta.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.getElementById('main-image');
+            const thumbnailBtns = document.querySelectorAll('.thumbnail-btn');
+            const imagePrevBtn = document.getElementById('image-prev');
+            const imageNextBtn = document.getElementById('image-next');
+            
+            let currentImageIndex = 0;
+            const images = Array.from(thumbnailBtns).map(btn => btn.getAttribute('data-image'));
+            
+            function updateMainImage(index) {
+                mainImage.src = images[index];
+                
+                thumbnailBtns.forEach((btn, i) => {
+                    if (i === index) {
+                        btn.classList.add('border-blue-600');
+                        btn.classList.remove('border-transparent');
+                    } else {
+                        btn.classList.remove('border-blue-600');
+                        btn.classList.add('border-transparent');
+                    }
+                });
+            }
+            
+            function nextImage() {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                updateMainImage(currentImageIndex);
+            }
+            
+            function prevImage() {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                updateMainImage(currentImageIndex);
+            }
+            
+            thumbnailBtns.forEach((btn, index) => {
+                btn.addEventListener('click', function() {
+                    currentImageIndex = index;
+                    updateMainImage(currentImageIndex);
+                });
+            });
+            
+            if (imageNextBtn) {
+                imageNextBtn.addEventListener('click', nextImage);
+            }
+            
+            if (imagePrevBtn) {
+                imagePrevBtn.addEventListener('click', prevImage);
+            }
+            
+            const quantitySpan = document.getElementById('quantity');
+            const decreaseBtn = document.getElementById('decrease-qty');
+            const increaseBtn = document.getElementById('increase-qty');
+            let quantity = 1;
+            
+            decreaseBtn.addEventListener('click', function() {
+                if (quantity > 1) {
+                    quantity--;
+                    quantitySpan.textContent = quantity;
+                }
+            });
+            
+            increaseBtn.addEventListener('click', function() {
+                quantity++;
+                quantitySpan.textContent = quantity;
+            });
+            
+            const addToCartBtn = document.getElementById('add-to-cart-detail');
+            addToCartBtn.addEventListener('click', function() {
+                const productId = this.getAttribute('data-product-id');
+                const productName = this.getAttribute('data-product-name');
+                const productPrice = parseFloat(this.getAttribute('data-product-price'));
+                const productImage = this.getAttribute('data-product-image');
+                
+                for (let i = 0; i < quantity; i++) {
+                    addToCart(productId, productName, productPrice, productImage);
+                }
+                
+                quantity = 1;
+                quantitySpan.textContent = quantity;
+            });
+        });
+    </script>
+</body>
+</html>

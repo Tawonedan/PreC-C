@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - PreC-C</title>
+    <meta name="description" content="Temukan informasi lebih lanjut tentang PreC-C - toko online terpercaya untuk produk kebutuhan kantor dan kreasi konten">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="smile-plus" class="w-8 h-8 text-black-600"></i>
+                    <span class="text-2xl font-bold text-gray-800">PreC-C</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Beranda</a>
+                    <a href="products.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Produk</a>
+                    <a href="about.html" class="text-blue-600 font-medium">Tentang</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="search-toggle" class="p-2 text-gray-700 hover:text-blue-600 transition-colors">
+                        <i data-lucide="search" class="w-6 h-6"></i>
+                    </button>
+                    
+                    <div id="search-container" class="hidden absolute top-full right-4 mt-2 z-50">
+                        <input type="text" id="search-input" placeholder="Cari produk..." class="w-64 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white shadow-lg">
+                    </div>
+                    
+                    <button id="cart-toggle" class="relative p-2 text-gray-700 hover:text-blue-600 transition-colors">
+                        <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </button>
+                    
+                    <a href="profile.html" class="p-2 text-gray-700 hover:text-blue-600 transition-colors">
+                        <i data-lucide="user" class="w-6 h-6"></i>
+                    </a>
+                    
+                    <button id="mobile-menu-toggle" class="md:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="mobile-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
+            
+            <div id="mobile-menu" class="fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-8">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="smile-plus" class="w-8 h-8 text-black-600"></i>
+                            <span class="text-2xl font-bold text-gray-800">PreC-C</span>
+                        </div>
+                    </div>
+                    
+                    <nav class="space-y-4">
+                        <a href="index.html" class="flex items-center space-x-3 text-gray-700 hover:text-blue-600 transition-colors font-medium py-3">
+                            <i data-lucide="home" class="w-5 h-5"></i>
+                            <span>Beranda</span>
+                        </a>
+                        <a href="products.html" class="flex items-center space-x-3 text-gray-700 hover:text-blue-600 transition-colors font-medium py-3">
+                            <i data-lucide="package" class="w-5 h-5"></i>
+                            <span>Produk</span>
+                        </a>
+                        <a href="about.html" class="flex items-center space-x-3 text-blue-600 font-medium py-3">
+                            <i data-lucide="info" class="w-5 h-5"></i>
+                            <span>Tentang</span>
+                        </a>
+                          <a href="cart.html" class="flex items-center space-x-3 text-gray-700 hover:text-blue-600 transition-colors font-medium py-3">
+                              <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                              <span>Keranjang</span>
+                          </a>
+                          <a href="profile.html" class="flex items-center space-x-3 text-gray-700 hover:text-blue-600 transition-colors font-medium py-3">
+                              <i data-lucide="user" class="w-5 h-5"></i>
+                              <span>Profil</span>
+                          </a>
+                      </nav>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="bg-gray-100 py-4">
+        <div class="container mx-auto px-4">
+            <nav class="flex items-center space-x-2 text-sm">
+                <a href="index.html" class="text-gray-600 hover:text-blue-600">Beranda</a>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-gray-400"></i>
+                <span class="text-gray-800">Tentang Kami</span>
+            </nav>
+        </div>
+    </div>
+
+    <section class="relative py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop');"></div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Tentang PreC-C</h1>
+            <p class="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">PreC-C adalah toko online terpercaya untuk produk berkualitas dengan harga terjangkau.</p>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6">Cerita PreC-C</h2>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Didirikan pada tahun 2024, PreC-C lahir dari visi sederhana: untuk membuat belanja online 
+                            mudah, menyenangkan, dan mudah diakses bagi semua orang. Kami percaya bahwa menemukan produk 
+                            sempurna tidak boleh menjadi tantangan, dan itulah mengapa kami telah memilih secara hati-hati 
+                            rentang produk berkualitas tinggi dengan harga yang tidak akan mencekik kantong.
+                        </p>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Tim kami profesional yang bersemangat bekerja keras untuk memastikan bahwa setiap 
+                            pelanggan memiliki pengalaman belanja yang lancar. Dari desain situs web yang mudah digunakan 
+                            hingga pengiriman yang cepat, kami berkomitmen untuk melebihi ekspektasi Anda di setiap sudut.
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <div class="flex text-yellow-400">
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <span class="text-gray-600">4.9/5 dari 10,000+ pelanggan</span>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop" alt="Our Team" class="rounded-lg shadow-lg">
+                        <div class="absolute -bottom-6 -right-6 bg-blue-600 text-white p-6 rounded-lg shadow-lg">
+                            <div class="text-3xl font-bold">10K+</div>
+                            <div class="text-sm opacity-90">Pelanggan Puas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Nilai kami</h2>
+                <p class="text-gray-600 text-lg">Yang menggerakkan kami setiap hari</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-white rounded-lg shadow-md p-8 text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="heart" class="w-8 h-8 text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Pelanggan yang utama</h3>
+                    <p class="text-gray-600">
+                        Setiap keputusan yang kami ambil diarahkan oleh apa yang terbaik untuk pelanggan kami. 
+                        Kepuasan pelanggan adalah prioritas utama kami.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-8 text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="shield-check" class="w-8 h-8 text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Kualitas Terjamin</h3>
+                    <p class="text-gray-600">
+                        Kami dengan teliti memilih setiap produk untuk memastikan bahwa produk tersebut memenuhi standar kami 
+                        untuk kualitas dan keawetan.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-8 text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="zap" class="w-8 h-8 text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Cepat & Terpercaya</h3>
+                    <p class="text-gray-600">
+                        Kami mengirimkan pesanan Anda dengan cepat dan terpercaya, dengan pelacakan real-time 
+                        dan dukungan pelanggan yang sangat baik.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Hubungi Kami</h2>
+                    <p class="text-gray-600 text-lg">Kami ingin mendengar dari Anda</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Alamat Email</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subjek</label>
+                                <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Pesan</label>
+                                <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"></textarea>
+                                <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                            </div>
+                            
+                            <button type="submit" 
+                                    class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                                Kirim Pesan
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-6">Info Kontak</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="mail" class="w-6 h-6 text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Email</h4>
+                                        <p class="text-gray-600">info@prec-c.com</p>
+                                        <p class="text-gray-600">support@prec-c.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="phone" class="w-6 h-6 text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Telepon</h4>
+                                        <p class="text-gray-600">+62 812 3456 7890</p>
+                                        <p class="text-gray-600">Senin-Jumat 09:00-18:00</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="map-pin" class="w-6 h-6 text-purple-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Alamat</h4>
+                                        <p class="text-gray-600">Jl. Ambarowo No. 67, Surabaya</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Ikuti Kami</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
+                                    <i data-lucide="facebook" class="w-6 h-6"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-blue-400 text-white rounded-lg flex items-center justify-center hover:bg-blue-500 transition-colors">
+                                    <i data-lucide="twitter" class="w-6 h-6"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-pink-600 text-white rounded-lg flex items-center justify-center hover:bg-pink-700 transition-colors">
+                                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-blue-800 text-white rounded-lg flex items-center justify-center hover:bg-blue-900 transition-colors">
+                                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i data-lucide="smile-plus" class="w-8 h-8 text-black-600"></i>
+                        <span class="text-2xl font-bold text-white-800">PreC-C</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">PreC-C adalah toko online terpercaya untuk produk berkualitas dengan harga terjangkau.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tautan Cepat</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Beranda</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-white transition-colors">Produk</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">Tentang</a></li>
+                        <li><a href="cart.html" class="text-gray-400 hover:text-white transition-colors">Keranjang</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Customer Service</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Hubungi Kami</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Info Pengiriman</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Pengembalian</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Info Kontak</h3>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i data-lucide="mail" class="w-4 h-4 inline mr-2"></i>info@prec-c.com</p>
+                        <p><i data-lucide="phone" class="w-4 h-4 inline mr-2"></i>+62 812 3456 7890</p>
+                        <p><i data-lucide="map-pin" class="w-4 h-4 inline mr-2"></i>Jl. Ambarowo No. 67, Surabaya</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 PreC-C. Dilindungi oleh hak cipta.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
